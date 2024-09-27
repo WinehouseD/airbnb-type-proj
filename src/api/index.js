@@ -18,7 +18,7 @@ const api = axios.create({
   baseURL: env.BASE_URL,
 });
 
-const adapter = new MockAdapter(api, { delayResponse: 500 });
+const adapter = new MockAdapter(api, { delayResponse: 200 });
 
 adapter.onGet(/\/api\/listings\/\d+/).reply(
   withAuth(async (config) => {
