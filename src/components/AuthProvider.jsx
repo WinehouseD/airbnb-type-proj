@@ -20,7 +20,7 @@ export const useAuth = () => {
   return authContext;
 };
 
-export const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [token, setToken] = useState();
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     const authInterceptor = api.interceptors.request.use((config) => {
       config.headers.Authorization =
         !config._retry && token
-          ? `Bearer $(token)`
+          ? `Bearer ${token}`
           : config.headers.Authorization;
       return config;
     });

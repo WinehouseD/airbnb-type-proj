@@ -1,7 +1,7 @@
 import * as jose from 'jose';
 
 import { env } from '@/lib/env';
-import { getItem } from '@/lib/utils/localStorage';
+import { getItem, setItem } from '@/lib/utils/localStorage';
 
 const JWT_SECRET_KEY = 'demokey';
 const jwtSecret = new TextEncoder().encode(JWT_SECRET_KEY);
@@ -9,6 +9,17 @@ const jwtSecret = new TextEncoder().encode(JWT_SECRET_KEY);
 export const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const getDatabaseTable = (entity) => getItem(env.DB_KEY)?.[entity];
+
+export const setDatabaseTable = (entity, data) => {
+  const db = getItem(env.DB_KEY);
+  db[entity] = data;
+  setItem(env.DB_KEY, db);
+};
+
+export const cleanUser = (user) => {
+  const { password, ...rest } = user;
+  return rest;
+};
 
 export const withAuth =
   (...data) =>
@@ -18,7 +29,7 @@ export const withAuth =
     const verified = token ? await verifyToken(token) : false;
 
     if (env.USE_AUTH && !verified) {
-      return [403, { message: 'Unauthorized' }];
+      return [401, { message: 'Unauthorized' }];
     }
 
     return typeof data[0] === 'function' ? data[0](config) : data;

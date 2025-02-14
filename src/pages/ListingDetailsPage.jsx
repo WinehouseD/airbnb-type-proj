@@ -2,16 +2,16 @@ import { useParams } from 'react-router-dom';
 
 import DataRenderer from '@/components/DataRenderer';
 import ListingDetailsCard from '@/components/ListingDetailsCard';
-import useFetch from '@/hooks/useFetch';
+import useListingDegailsQuery from '@/hooks/queries/useListingDegailsQuery';
 
 const ListingDetailsPage = () => {
   const { listingId } = useParams();
 
   const {
-    data: listing,
-    error,
+    data: { data: listing } = {},
     isLoading,
-  } = useFetch(`/api/listings/${listingId}`);
+    error,
+  } = useListingDegailsQuery(listingId);
 
   return (
     <div className='container py-4'>

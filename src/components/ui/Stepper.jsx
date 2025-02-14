@@ -13,6 +13,7 @@ const Stepper = React.forwardRef(
         )}
       >
         <Button
+          type='button'
           disabled={value === 0}
           variant='link'
           onClick={() => onChange(value - 1)}
@@ -28,6 +29,7 @@ const Stepper = React.forwardRef(
           {value > 1 || value === 0 ? 's' : ''}
         </span>
         <Button
+          type='button'
           disabled={value === 100}
           variant='link'
           onClick={() => onChange(value + 1)}

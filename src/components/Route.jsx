@@ -15,7 +15,7 @@ const Route = ({ children, isProtected }) => {
   }, [isProtected, navigate, token]);
 
   return token === undefined ? (
-    <div className='absolute bottom-0 left-0 right-0 top-0 ml-[700px] flex items-center justify-center'>
+    <div className='absolute inset-0 flex items-center justify-center'>
       <Spinner />
     </div>
   ) : (

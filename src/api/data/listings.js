@@ -14,6 +14,7 @@ export const createListing = (listing) => {
     images,
     price,
     rating,
+    userId,
   } = listing;
 
   return {
@@ -27,6 +28,7 @@ export const createListing = (listing) => {
     price,
     rating,
     guestFavorite,
+    userId,
     createdAt: new Date(),
     modifiedAt: new Date(),
   };
@@ -72,12 +74,14 @@ With its central location, modern amenities, and comfortable furnishings, this a
       'listing1-6.jpg',
       'listing1-7.jpg',
     ],
+    rating: 4.5,
     price: 100,
     maxGuests: 4,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 7),
     },
+    userId: 1,
   }),
   createListing({
     id: 2,
@@ -97,12 +101,14 @@ With its central location, modern amenities, and comfortable furnishings, this a
       'listing2-6.jpg',
       'listing2-7.jpg',
     ],
+    rating: 4.8,
     price: 120,
     maxGuests: 2,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 14),
     },
+    userId: 1,
   }),
   createListing({
     id: 3,
@@ -124,12 +130,14 @@ With its central location, modern amenities, and comfortable furnishings, this a
       'listing3-6.jpg',
       'listing3-7.jpg',
     ],
+    rating: 4.2,
     price: 150,
     maxGuests: 6,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 21),
     },
+    userId: 1,
   }),
   createListing({
     id: 4,
@@ -149,12 +157,14 @@ With its central location, modern amenities, and comfortable furnishings, this a
       'listing4-6.jpg',
       'listing4-7.jpg',
     ],
+    rating: 4.1,
     price: 80,
     maxGuests: 8,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 28),
     },
+    userId: 1,
   }),
   createListing({
     id: 5,
@@ -174,12 +184,14 @@ With its central location, modern amenities, and comfortable furnishings, this a
       'listing5-6.jpg',
       'listing5-7.jpg',
     ],
+    rating: 3.8,
     price: 90,
     maxGuests: 4,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 7),
     },
+    userId: 1,
   }),
   createListing({
     id: 6,
@@ -199,12 +211,14 @@ With its central location, modern amenities, and comfortable furnishings, this a
       'listing6-6.jpg',
       'listing6-7.jpg',
     ],
+    rating: 4.3,
     price: 110,
     maxGuests: 16,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 14),
     },
+    userId: 1,
   }),
   createListing({
     id: 7,
@@ -226,12 +240,14 @@ With its central location, modern amenities, and comfortable furnishings, this v
       'listing7-6.jpg',
       'listing7-7.jpg',
     ],
+    rating: 4.7,
     price: 100,
     maxGuests: 20,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 21),
     },
+    userId: 1,
   }),
   createListing({
     id: 8,
@@ -251,12 +267,14 @@ With its central location, modern amenities, and comfortable furnishings, this v
       'listing8-6.jpg',
       'listing8-7.jpg',
     ],
+    rating: 4.6,
     price: 120,
     maxGuests: 10,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 28),
     },
+    userId: 1,
   }),
   createListing({
     id: 9,
@@ -278,12 +296,14 @@ With its central location, modern amenities, and comfortable furnishings, this v
       'listing9-6.jpg',
       'listing9-7.jpg',
     ],
+    rating: 4.4,
     price: 150,
     maxGuests: 6,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 7),
     },
+    userId: 1,
   }),
   createListing({
     id: 10,
@@ -303,12 +323,14 @@ With its central location, modern amenities, and comfortable furnishings, this v
       'listing10-6.jpg',
       'listing10-7.jpg',
     ],
+    rating: 4.0,
     price: 80,
     maxGuests: 2,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 14),
     },
+    userId: 1,
   }),
   createListing({
     id: 11,
@@ -328,12 +350,14 @@ With its central location, modern amenities, and comfortable furnishings, this v
       'listing11-6.jpg',
       'listing11-7.jpg',
     ],
+    rating: 4.9,
     price: 90,
     maxGuests: 4,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 21),
     },
+    userId: 1,
   }),
   createListing({
     id: 12,
@@ -353,11 +377,13 @@ With its central location, modern amenities, and comfortable furnishings, this v
       'listing12-6.jpg',
       'listing12-7.jpg',
     ],
+    rating: 4.5,
     price: 110,
     maxGuests: 8,
     availability: {
       from: startOfToday,
       to: addDays(startOfToday, 28),
     },
+    userId: 1,
   }),
 ];

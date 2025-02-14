@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import Route from '@/components/Route';
 import HomePage from '@/pages/HomePage';
-import ListingDetailsPage from '@/components/ListingDetailsPage';
+import ListingDetailsPage from '@/pages/ListingDetailsPage';
 import ListingFavoritesPage from '@/pages/ListingFavoritesPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 import SignInPage from '@/pages/SignInPage';

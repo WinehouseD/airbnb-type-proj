@@ -5,20 +5,22 @@ import Cookies from 'js-cookie';
 import { env } from '@/lib/env';
 
 import {
+  cleanUser,
   generateAccessToken,
   generateRefreshToken,
   verifyToken,
   withAuth,
 } from './helpers';
-import { getListingById, getListings } from './listings';
+import { createListing, getListingById, getListings } from './listings';
 import { getLocationById } from './locations';
-import { getUser } from './users';
+import { getReviewsByListingId } from './reviews';
+import { getUser, getUserById } from './users';
 
 const api = axios.create({
   baseURL: env.BASE_URL,
 });
 
-const adapter = new MockAdapter(api, { delayResponse: 200 });
+const adapter = new MockAdapter(api, { delayResponse: 500 });
 
 adapter.onGet(/\/api\/listings\/\d+/).reply(
   withAuth(async (config) => {
@@ -53,6 +55,26 @@ adapter.onGet('/api/listings').reply(
   }),
 );
 
+adapter.onPost('/api/listings').reply(
+  withAuth(async (config) => {
+    const { data } = config;
+
+    const listing = createListing(JSON.parse(data));
+
+    return [200, listing];
+  }),
+);
+
+adapter.onGet('/api/reviews').reply(
+  withAuth(async (config) => {
+    const { params } = config;
+
+    const reviews = getReviewsByListingId(params.listingId);
+
+    return [200, reviews];
+  }),
+);
+
 adapter.onGet('/api/me').reply(
   withAuth(async (config) => {
     const accessToken = config.headers.Authorization?.split(' ')[1];
@@ -73,10 +95,13 @@ adapter.onGet('/api/me').reply(
       return [403, { message: 'Unauthorized' }];
     }
 
+    const user = getUserById(refreshTokenPayload.data);
+
     return [
       200,
       {
         accessToken: env.USE_AUTH ? accessToken : null,
+        user: env.USE_AUTH ? cleanUser(user) : null,
       },
     ];
   }),
@@ -97,6 +122,7 @@ adapter.onPost('/api/signin').reply(async (config) => {
       200,
       {
         accessToken: env.USE_AUTH ? accessToken : null,
+        user: env.USE_AUTH ? cleanUser(user) : null,
       },
     ];
   } else {
@@ -115,9 +141,11 @@ adapter.onGet('/api/refreshToken').reply(async () => {
     return [403, { message: 'Invalid refresh token' }];
   }
 
+  const user = getUserById(refreshTokenPayload.data);
+
   const accessToken = await generateAccessToken(refreshToken);
 
-  return [200, env.USE_AUTH ? { accessToken } : null];
+  return [200, env.USE_AUTH ? { accessToken, user: cleanUser(user) } : null];
 });
 
 adapter.onPost('/api/signout').reply(

@@ -1,5 +1,15 @@
 import { getDatabaseTable } from './helpers';
 
+export const getUserById = (id) => {
+  const users = getDatabaseTable('users');
+  if (!users) {
+    console.log('No users table found');
+    return;
+  }
+
+  return users.find((user) => user.id === id);
+};
+
 export const getUser = (data) => {
   const { email, password } = data;
 
