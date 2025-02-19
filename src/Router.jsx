@@ -6,6 +6,7 @@ import ListingDetailsPage from '@/pages/ListingDetailsPage';
 import ListingFavoritesPage from '@/pages/ListingFavoritesPage';
 import NotFoundPage from '@/pages/NotFoundPage';
 import SignInPage from '@/pages/SignInPage';
+import ProfilePage from './pages/ProfilePage';
 
 import App from './App';
 
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
         element: (
           <Route isProtected>
             <ListingFavoritesPage />
+          </Route>
+        ),
+      },
+      {
+        path: '/profile',
+        element: (
+          <Route isProtected>
+            <ProfilePage />
           </Route>
         ),
       },

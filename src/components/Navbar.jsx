@@ -11,7 +11,7 @@ import {
 import useSignOutMutation from '@/hooks/mutation/useSignOutMutation';
 
 const Navbar = () => {
-  const { setToken } = useAuth();
+  const { setToken, setUser } = useAuth();
 
   const signOutMutation = useSignOutMutation();
 
@@ -20,8 +20,10 @@ const Navbar = () => {
       await signOutMutation.mutateAsync();
 
       setToken(null);
+      setUser(null);
     } catch {
       setToken(null);
+      setUser(null);
     }
   };
 
@@ -37,6 +39,9 @@ const Navbar = () => {
               <Link>Account</Link>
             </DropdownMenuTrigger>
             <DropdownMenuContent align='end'>
+              <Link to='/profile'>
+                <DropdownMenuItem>Profile</DropdownMenuItem>
+              </Link>
               <DropdownMenuItem onClick={handleSignOut}>
                 Sign Out
               </DropdownMenuItem>

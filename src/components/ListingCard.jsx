@@ -3,9 +3,15 @@ import { Link } from 'react-router-dom';
 
 import ListingCardImages from '@/components/ListingCardImages';
 import ListingFavoriteButton from '@/components/ListingFavoriteButton';
-import { Card, CardContent } from '@/components/ui';
+import { Card, CardContent, Separator } from '@/components/ui';
+import { useSelector } from 'react-redux';
+import UserAvatar from './UserAvatar';
 
 const ListingCard = ({ listing }) => {
+  const { users } = useSelector((state) => state.users);
+
+  const listingUser = users[listing.userId];
+
   return (
     <Link to={`/listings/${listing.id}`}>
       <Card className='w-[320px]'>
@@ -37,6 +43,12 @@ const ListingCard = ({ listing }) => {
               {listing.maxGuests} Guests
             </span>
           </div>
+          {listingUser && (
+            <>
+              <Separator className='my-4' />
+              <UserAvatar user={listingUser} />
+            </>
+          )}
         </CardContent>
       </Card>
     </Link>

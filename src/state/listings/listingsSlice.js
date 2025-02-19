@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  listings: [],
+  error: null,
   favoriteListingIds: [],
+  status: 'idle',
 };
 
 export const listingsSlice = createSlice({

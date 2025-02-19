@@ -20,7 +20,7 @@ export const users = [
   createUser({
     id: 1,
     avatarUrl: 'https://i.pravatar.cc/150?img=1',
-    bio: `Hello, I am User One, your friendly host. I have been hosting for over 5 years and I absolutely love it. Meeting new people and making their stay comfortable and memorable is my passion.
+    bio: `Hello, I am Olena, your friendly host. I have been hosting for over 5 years and I absolutely love it. Meeting new people and making their stay comfortable and memorable is my passion.
     
     I am a local here and have extensive knowledge about the city and its hidden gems. I can guide you to the best restaurants, parks, and attractions. I am always available to answer any questions or provide assistance, ensuring you have a smooth and enjoyable stay.
     
@@ -28,8 +28,8 @@ export const users = [
     
     I am looking forward to hosting you and providing you the best experience. Welcome to our city and enjoy your stay!`,
     email: 'demo@gmail.com',
-    firstName: 'Demo',
-    lastName: 'Account',
+    firstName: 'Olena',
+    lastName: 'Wilson',
     initials: 'DA',
     password: 'demoPassword',
   }),
