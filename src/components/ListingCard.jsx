@@ -45,7 +45,7 @@ const ListingCard = ({ listing }) => {
           </div>
           {listingUser && (
             <>
-              <Separator className='my-4' />
+              <Separator className='my-2' />
               <UserAvatar user={listingUser} />
             </>
           )}

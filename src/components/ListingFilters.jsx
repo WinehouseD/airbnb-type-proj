@@ -15,6 +15,7 @@ const ListingFilters = ({ onChange }) => {
   return (
     <div className='flex flex-row items-center justify-center gap-2'>
       <Input
+        name='search'
         className='w-[400px]'
         placeholder='Search destinations'
         value={search}

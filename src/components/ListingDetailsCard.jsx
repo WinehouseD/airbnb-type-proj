@@ -4,6 +4,7 @@ import ListingDetailsCardImages from '@/components/ListingDetailsCardImages';
 import ListingFavoriteButton from '@/components/ListingFavoriteButton';
 import { Card, Separator } from '@/components/ui';
 import { useSelector } from 'react-redux';
+import UserAvatar from './UserAvatar';
 
 const ListingDetailsCard = ({ listing }) => {
   const { users } = useSelector((state) => state.users);
@@ -43,7 +44,7 @@ const ListingDetailsCard = ({ listing }) => {
       {listingUser && (
         <>
           <UserAvatar user={listingUser} />
-          <Separator className='my-4' />
+          <Separator className='my-2' />
         </>
       )}
       <div className='whitespace-pre-line'>{listing.description}</div>

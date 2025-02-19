@@ -6,7 +6,7 @@ import { Spinner } from '@/components/ui';
 
 const Route = ({ children, isProtected }) => {
   const navigate = useNavigate();
-  const { token } = useAuth();
+  const { token, user } = useAuth();
 
   useEffect(() => {
     if (isProtected && token === null) {
@@ -14,7 +14,7 @@ const Route = ({ children, isProtected }) => {
     }
   }, [isProtected, navigate, token]);
 
-  return token === undefined ? (
+  return token === undefined || user === undefined ? (
     <div className='absolute inset-0 flex items-center justify-center'>
       <Spinner />
     </div>

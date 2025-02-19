@@ -29,7 +29,7 @@ const ProfilePage = () => {
   return (
     <div className='container py-4'>
       <div className='mb-4 flex flex-col items-center'>
-        <UserAvatar className='mb-4 size-[200px]' imageOnly user={user} />
+        <UserAvatar className='mb-4 size-[150px]' imageOnly user={user} />
         <h1 className='text-center'>{displayName}</h1>
       </div>
       <Card className='mb-8 pt-4'>
