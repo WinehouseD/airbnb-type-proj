@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import DataRenderer from '@/components/DataRenderer';
 import ListingFilters from '@/components/ListingFilters';
@@ -13,20 +13,18 @@ const HomePage = () => {
     search: '',
   });
 
-  const fetchOptions = useMemo(() => ({ params: filters }), [filters]);
-
   const {
     data: { data: listings } = {},
-    isLoading,
     error,
-  } = useListingsQuery(fetchOptions);
+    isLoading,
+  } = useListingsQuery(filters);
 
   const handleFilters = useCallback((filters) => {
     setFilters(filters);
   }, []);
 
   return (
-    <div className='container py-4'>
+    <div className='container py-4' data-testid='home-page'>
       <div className='mb-4'>
         <ListingFilters onChange={handleFilters} />
         <Separator className='my-4' />

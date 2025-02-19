@@ -29,16 +29,16 @@ const ProfilePage = () => {
   return (
     <div className='container py-4'>
       <div className='mb-4 flex flex-col items-center'>
-        <UserAvatar clasName='mb-4 size-[200px]' imageOnly user={user} />
+        <UserAvatar className='mb-4 size-[200px]' imageOnly user={user} />
         <h1 className='text-center'>{displayName}</h1>
       </div>
-      <Card clasName='mb-8 pt-4'>
+      <Card className='mb-8 pt-4'>
         <CardContent>
-          <div className='whitespace-pre-line pt-6'>{user.bio}</div>
+          <div className='whitespace-pre-line'>{user.bio}</div>
         </CardContent>
       </Card>
       <div>
-        <h2 className='my-4'>Your Listings</h2>
+        <h2 className='mb-4'>Your Listings</h2>
         <DataRenderer error={error} isLoading={isLoading}>
           <ListingList listings={userListings} />
         </DataRenderer>
