@@ -10,7 +10,7 @@ const NotFoundPage = () => {
         <p className='pb-2'>
           Unfortunately, the page that you're looking for does not exist.
         </p>
-        <Button asChild>
+        <Button asChild aria-label='Back to Home'>
           <Link to='/' replace>
             Back to Home
           </Link>

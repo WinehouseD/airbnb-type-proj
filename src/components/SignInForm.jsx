@@ -10,9 +10,10 @@ import {
   CardHeader,
   Separator,
 } from '@/components/ui';
-import TextInput from './TextInput';
+import useSignInMutation from '@/hooks/mutations/useSignInMutation';
+
 import Form from './Form';
-import useSignInMutation from '@/hooks/mutation/useSignInMutation';
+import TextInput from './TextInput';
 
 const signInFormSchema = z.object({
   email: z.string().email(),
@@ -62,6 +63,7 @@ const SignInForm = () => {
             disabled={signInMutation.isPending}
             onClick={form.handleSubmit(onSubmit)}
             className='mt-6'
+            aria-label='Sign In'
           >
             {form.formState.isSubmitting ? 'Loading...' : 'Sign In'}
           </Button>

@@ -178,6 +178,7 @@ const CarouselPrevious = React.forwardRef(
     return (
       <Button
         ref={ref}
+        aria-label='Previous slide'
         variant={variant}
         size={size}
         className={cn(
@@ -209,6 +210,7 @@ const CarouselNext = React.forwardRef(
     return (
       <Button
         ref={ref}
+        aria-label='Next slide'
         variant={variant}
         size={size}
         className={cn(
@@ -237,6 +239,6 @@ export {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
   CarouselNext,
+  CarouselPrevious,
 };

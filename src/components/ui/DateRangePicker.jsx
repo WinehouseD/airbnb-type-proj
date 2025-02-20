@@ -28,6 +28,7 @@ export const DateRangePicker = ({
         <PopoverTrigger asChild>
           <Button
             id='date'
+            aria-label='Select dates'
             variant='outline'
             className={cn(
               'w-[250px] justify-start text-left font-normal',

@@ -28,7 +28,7 @@ const ListingFilters = ({ onChange }) => {
         placeholder='Add dates'
       />
       <Stepper label='guest' value={guests} onChange={setGuests} />
-      <Button onClick={handleSubmit}>
+      <Button onClick={handleSubmit} aria-label='Search'>
         <Search className='h-4 w-4' />
       </Button>
     </div>

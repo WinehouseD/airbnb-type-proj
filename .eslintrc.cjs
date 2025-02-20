@@ -16,18 +16,25 @@ module.exports = {
     'react-refresh/only-export-components': 'off',
     'react/no-unescaped-entities': 'off',
     'no-unused-vars': 'off',
+    'simple-import-sort/exports': 'error',
     'simple-import-sort/imports': [
       'error',
       {
         groups: [
-          // External packages come first
+          // Side effect imports.
+          ['^\\u0000'],
+          // Node.js built-ins.
+          ['^node:'],
+          // External packages.
           ['^@?\\w'],
-          // Internal files
+          // Aliased imports (e.g., @/).
           ['^@/'],
-          // Colocated files
-          ['^\\.\\./', '^\\./'],
-          // Style imports
-          ['^.+\\.?(css)$'],
+          // Parent imports (e.g., ../).
+          ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+          // Sibling imports (e.g., ./).
+          ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+          // Style imports.
+          ['^.+\\.s?css$'],
         ],
       },
     ],

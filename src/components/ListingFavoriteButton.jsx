@@ -23,6 +23,7 @@ const ListingFavoriteButton = ({ listing, className }) => {
   return (
     <Button
       className={className}
+      aria-label='Favorite'
       variant='outline'
       onClick={(e) => {
         e.preventDefault();

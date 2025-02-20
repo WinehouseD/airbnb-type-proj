@@ -1,9 +1,10 @@
 import { DollarSign, Pin, Users } from 'lucide-react';
+import { useSelector } from 'react-redux';
 
 import ListingDetailsCardImages from '@/components/ListingDetailsCardImages';
 import ListingFavoriteButton from '@/components/ListingFavoriteButton';
 import { Card, Separator } from '@/components/ui';
-import { useSelector } from 'react-redux';
+
 import UserAvatar from './UserAvatar';
 
 const ListingDetailsCard = ({ listing }) => {
@@ -38,7 +39,7 @@ const ListingDetailsCard = ({ listing }) => {
             </span>
           </div>
         </div>
-        <ListingFavoriteButton listing={listing} />
+        <ListingFavoriteButton listing={listing} aria-label='Favorite' />
       </div>
       <Separator className='my-4' />
       {listingUser && (
