@@ -5,6 +5,7 @@ import ListingDetailsCardImages from '@/components/ListingDetailsCardImages';
 import ListingFavoriteButton from '@/components/ListingFavoriteButton';
 import { Card, Separator } from '@/components/ui';
 
+import ListingRatingStars from './ListingRatingStars';
 import UserAvatar from './UserAvatar';
 
 const ListingDetailsCard = ({ listing }) => {
@@ -20,26 +21,32 @@ const ListingDetailsCard = ({ listing }) => {
         <div className='flex flex-col gap-2'>
           <h1 className='mb-2 text-2xl font-bold'>{listing.name}</h1>
           <div className='flex items-center'>
-            <DollarSign className='mr-2 h-4 w-4 text-primary' />
+            <DollarSign className='mr-2 size-4 text-primary' />
             <span className='text-muted-foreground'>
               <span className='font-bold text-foreground'>{listing.price}</span>{' '}
               / night
             </span>
           </div>
           <div className='flex items-center gap-2'>
-            <Pin className='h-4 w-4 text-primary' />
+            <Pin className='size-4 text-primary' />
             <span className='text-muted-foreground'>
               {listing.location.name}
             </span>
           </div>
           <div className='flex items-center gap-2'>
-            <Users className='h-4 w-4 text-primary' />
+            <Users className='size-4 text-primary' />
             <span className='text-muted-foreground'>
               {listing.maxGuests} Guests
             </span>
           </div>
         </div>
-        <ListingFavoriteButton listing={listing} aria-label='Favorite' />
+        <div>
+          <ListingRatingStars
+            className='mr-2 bg-transparent p-0'
+            listing={listing}
+          />
+          <ListingFavoriteButton listing={listing} aria-label='Favorite' />
+        </div>
       </div>
       <Separator className='my-4' />
       {listingUser && (

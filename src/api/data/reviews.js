@@ -125,4 +125,13 @@ export const reviews = [
       'The stylish loft in Paris offered a great experience. The industrial chic decor was very cool, and the location was convenient for exploring the city. Minor issue with Wi-Fi, but otherwise excellent.',
     createdAt: subDays(today, 60),
   }),
+  createReview({
+    id: 13,
+    userId: 1,
+    listingId: 1,
+    rating: 4.1,
+    comment:
+      'Amazing apartments, great location, very clean and comfortable. I would definitely recommend it to anyone.',
+    createdAt: subDays(today, 65),
+  }),
 ];

@@ -6,6 +6,7 @@ import ListingCardImages from '@/components/ListingCardImages';
 import ListingFavoriteButton from '@/components/ListingFavoriteButton';
 import { Card, CardContent, Separator } from '@/components/ui';
 
+import ListingRatingStars from './ListingRatingStars';
 import UserAvatar from './UserAvatar';
 
 const ListingCard = ({ listing }) => {
@@ -22,6 +23,11 @@ const ListingCard = ({ listing }) => {
             className='absolute right-4 top-4'
             listing={listing}
             aria-label='Favorite'
+          />
+          <ListingRatingStars
+            className='absolute bottom-4 left-4'
+            listing={listing}
+            aria-label='Rating'
           />
         </div>
         <CardContent className='flex flex-col gap-2 p-4'>
