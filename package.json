@@ -8,7 +8,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "fix": "npm run lint && npm run prettier",
     "lint": "eslint . --ext js,jsx --fix --report-unused-disable-directives --max-warnings 0",
@@ -56,6 +56,7 @@
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.16",
+    "cypress": "^14.2.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",

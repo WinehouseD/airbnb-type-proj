@@ -14,14 +14,14 @@ const ReviewCard = ({ review }) => {
       <CardContent>
         <div className='mb-4 flex flex-row items-center justify-between'>
           <h3 className='mb-0'>{review.title}</h3>
-          <UserAvatar user={reviewUser} />
+          {reviewUser && (
+            <>
+              <UserAvatar user={reviewUser} />
+            </>
+          )}
           <ReviewCardStars review={review} />
         </div>
-        {reviewUser && (
-          <>
-            <Separator className='my-4' />
-          </>
-        )}
+
         <div className='whitespace-pre-line'>{review.comment}</div>
       </CardContent>
     </Card>

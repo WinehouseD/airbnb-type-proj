@@ -13,7 +13,10 @@ const ListingFilters = ({ onChange }) => {
   };
 
   return (
-    <div className='flex flex-row items-center justify-center gap-2'>
+    <div
+      className='flex flex-row items-center justify-center gap-2'
+      data-testid='listing-filters'
+    >
       <Input
         name='search'
         className='w-[400px]'
@@ -28,7 +31,11 @@ const ListingFilters = ({ onChange }) => {
         placeholder='Add dates'
       />
       <Stepper label='guest' value={guests} onChange={setGuests} />
-      <Button onClick={handleSubmit} aria-label='Search'>
+      <Button
+        onClick={handleSubmit}
+        aria-label='Search'
+        data-testid='listing-filters-submit'
+      >
         <Search className='h-4 w-4' />
       </Button>
     </div>

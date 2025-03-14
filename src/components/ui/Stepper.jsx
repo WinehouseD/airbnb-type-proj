@@ -18,6 +18,7 @@ const Stepper = React.forwardRef(
           disabled={value === 0}
           variant='link'
           onClick={() => onChange(value - 1)}
+          data-testid='stepper-decrement'
         >
           -
         </Button>
@@ -35,6 +36,7 @@ const Stepper = React.forwardRef(
           disabled={value === 100}
           variant='link'
           onClick={() => onChange(value + 1)}
+          data-testid='stepper-increment'
         >
           +
         </Button>
